@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- Завдання 1: Перевірка текстових полів -->
+<input type="text" id="textField1" placeholder="Текстове поле 1">
+<input type="text" id="textField2" placeholder="Текстове поле 2">
+
+<!-- Завдання 2: Перевірка числових полів -->
+<input type="number" id="numberField1" placeholder="Числове поле 1">
+<input type="number" id="numberField2" placeholder="Числове поле 2">
+
+<!-- Завдання 3: Перевірка наявності слова "JavaScript" -->
+<input type="text" id="jsField" placeholder="Поле для перевірки слова 'JavaScript'">
+
+<!-- Завдання 4 і 5: Перевірка діапазону числа і валідація форми -->
+<form id="validationForm">
+  <input type="number" id="rangeField" placeholder="Число від 10 до 20">
+  <input type="text" id="nameField" placeholder="Ім'я (мінімум 3 символи)">
+  <input type="email" id="emailField" placeholder="Email (з символом @ і крапкою)">
+  <input type="password" id="passwordField" placeholder="Пароль (мінімум 6 символів)">
+</form>
+
+<button onclick="performAllChecks()">Перевірити Все</button>
+
+<script>
+function performAllChecks() {
+  // Завдання 1
+  var textField1 = document.getElementById('textField1').value;
+  var textField2 = document.getElementById('textField2').value;
+  if (textField1 && textField2) {
+    alert("Обидва поля заповнені");
+  } else {
+    alert("Не всі поля заповнені");
+  }
+
+  // Завдання 2
+  var numberField1 = parseInt(document.getElementById('numberField1').value, 10);
+  var numberField2 = parseInt(document.getElementById('numberField2').value, 10);
+  if (numberField1 + numberField2 > 10) {
+    alert("Сума більша за 10");
+  } else {
+    alert("Сума менша або дорівнює 10");
+  }
+
+  // Завдання 3
+  var jsField = document.getElementById('jsField').value;
+  if (jsField.includes("JavaScript")) {
+    alert("Текст містить слово JavaScript");
+  } else {
+    alert("Текст не містить слово JavaScript");
+  }
+
+  // Завдання 4
+  var rangeField = parseInt(document.getElementById('rangeField').value, 10);
+  if (rangeField > 10 && rangeField < 20) {
+    alert("Число входить в діапазон від 10 до 20");
+  } else {
+    alert("Число не входить в діапазон від 10 до 20");
+  }
+
+  // Завдання 5
+  var nameField = document.getElementById('nameField').value;
+  var emailField = document.getElementById('emailField').value;
+  var passwordField = document.getElementById('passwordField').value;
+  if (nameField.length >= 3 && emailField.includes('@') && emailField.includes('.') && passwordField.length >= 6) {
+    window.location.href = 'https://example.com'; // Змініть URL на потрібну адресу
+  } else {
+    alert("Дані введено неправильно");
+  }
+}
+</script>
+
+</body>
+</html>
